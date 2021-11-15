@@ -1,0 +1,120 @@
+# This is a sample Python script.
+# Press Shift+F10 to execute it or replace it with your code.
+
+#Step 1 To get pandas in my IDE
+#Click on the globe icon and click on install and import pandas or below may work for u
+#python3 get-pip.py
+#pip3 install pandas
+
+#Step 2 Either work from my python working directory or copy path manually
+# using code code to get the working directory path and then paste this in your file directory
+# paste the file in this directory on your desktop
+#import os
+#path = os.getcwd()
+#print(path)    #result  C:\Users\Marie\PycharmProjects\pythonProject\Datacamp_Python
+
+#2b other leave the files where they are and simply copy the path and use in your code
+# To copy path, type in the filename in windows in search bar and then click on copy file path
+#e.g for government saved on downloads #C:\Users\Marie\Downloads\Goverment_csv.csv
+
+
+#Step 3 To Read The Json Goverment Dataset
+#step 3a
+#import json
+#from urllib.request import urlopen
+#with urlopen("https://www.gov.uk/api/organisations") as res:
+#    source = res.read()
+#    print(source)
+
+#3b To Load the file into a python object
+#import json
+#from urllib.request import urlopen
+#with urlopen("https://www.gov.uk/api/organisations") as res:
+#    source = res.read()
+#data = json.loads(source)
+#print(data)  # everthing is spat out in one line
+
+#to dump the contents of the file in a python string, e.g after deleting some columns etc
+#print(json.dumps(data, indent=2))     # To mamke it more readable
+#print(type(data))    # Answer  <class 'dict'>
+#print(data.shape)    # error, can't perform shape, attribute on a dictionary type
+#print(len(data['results']))  # 20lines counted
+#print(type(data['results']))  # <class 'list'>
+
+#Disecting the data more
+#for item in data['results']:
+  #  print(item)
+
+    #id = item['id']
+    #print(id)
+
+    #title = item['title']
+    #print(title)
+
+    #slug = item['details']['slug']
+    #print(slug)
+
+   #still_open = item['details']['closed_at']
+   # print(still_open)
+   # print(str(title) + "     " + " ------ " + "     " + str(still_open))
+   # print(id, title)
+
+#Step 3c To load a Json string into a python Object
+#does not work because this a json file and not json string that I have typed into python
+#import json
+#df = json.load('Goverment.json')
+#for data in df['results']:
+#    print(data['title'])
+#    del data['title']    # to delete entire column and it's values
+
+
+
+# Step 4 Trying to Load CSV files
+#4a for schools csv
+#import csv
+#with open('schools.csv', 'r') as sch:
+#    sch_res = csv.reader(sch)
+    #print(sch_res)   #just prints out object name
+
+    #for line in sch_res:
+    #    print(line)
+
+# 4b companies.csv file
+#import csv
+#with open('companies.csv', 'r') as comp:
+ #   comp_res = csv.reader(comp)
+ #   #print(comp_res)   #just prints out object name
+ #   for linec in comp_res:
+ #       print(linec)
+
+
+#Step 5 Text Files i.e charity
+#with open('Charity.txt', 'r') as f:
+#    Text_file = f.readline()
+#    print(Text_file)
+#    Text_file = f.readline()
+#    print(Text_file)
+#    Text_file = f.readline()
+#    print(Text_file)
+#    Text_file = f.readline()
+#    print(Text_file)
+
+#    Text_file = f.readlines()  #it is not reading all lines at once
+#    print(Text_file)
+
+
+#ignore not tried yet, would probably merge as csv
+#Join 2 Text files
+#create a file with a name you chose for the file name to store both text files in.
+#you will enter 3 information into terminal when promted, filename 1, 2 and 3rd filename which is an empty file to store both in
+#import shutil
+#file1 = input("Enter the name of the file1: ")
+#file2 = input("Enter the name of the file2: ")
+#Destination = input("Enter the destination filename: ")
+#with open(Destination, "wb")  as wfd:
+   # for files in (file1,file2):
+  #      with open(files, "rb") as fd:
+ #           shutil.copyfileobj(fd,wfd)
+#chek = open(Destination, "r")
+#print(chek.read())
+#chek.close()
